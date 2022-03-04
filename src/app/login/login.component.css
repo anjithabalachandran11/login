@@ -1,0 +1,16 @@
+.formdiv{
+    margin-top: 30%;
+    text-align: center;
+    padding:8px;
+    background-color:rgb(198, 204, 178);
+    border-radius:10px;
+    border-style:groove;
+    padding: 25px;
+}
+h1{
+    color: rgb(27, 7, 97);
+}
+.err{
+    color: red;
+    font-style: italic;
+}

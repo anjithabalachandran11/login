@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form [formGroup]="formdata" (ngSubmit)='registerfun()' class="formdiv">
+                <h1>REGISTER</h1>
+                <label>Enter ID:</label><br>
+                <input type="text" placeholder="enter id" class="form-control" formControlName="id" name="id"><br>
+                <div *ngIf="formdata.controls['id'].touched">
+                    <div *ngIf="formdata.controls['id'].errors?.['required']"><p class="err">This field is required!!</p></div>
+                    <div *ngIf="formdata.controls['id'].errors?.['pattern']"><p class="err">Numbers required!!</p></div>
+                </div>
+
+                <label>Enter Name:</label><br>
+                <input type="text" class="form-control" placeholder="enter name" formControlName="name" name="name"><br>
+                <div *ngIf="formdata.controls['name'].touched">
+                    <div *ngIf="formdata.controls['name'].errors?.['required']"><p class="err">This field is required!!</p></div>
+                    <div *ngIf="formdata.controls['name'].errors?.['pattern']"><p class="err">Name should be alphabets!!</p></div>
+                </div>
+
+                <label>Enter Age:</label><br>
+                <input type="text" class="form-control" placeholder="enter age" formControlName="age" name="age"><br>
+                <div *ngIf="formdata.controls['age'].touched">
+                    <div *ngIf="formdata.controls['age'].errors?.['required']"><p class="err">This field is required!!</p></div>
+                    <div *ngIf="formdata.controls['age'].errors?.['pattern']"><p class="err">Numbers required!!</p></div>
+                </div><br>
+
+                <button type="submit" class="btn btn-primary text-light" [disabled]="!formdata.valid">Register</button>&nbsp;&nbsp;&nbsp;
+                <a href='login'>Login</a>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</body>
+</html>
