@@ -10,8 +10,13 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <h1>Welcome {{cuser}}</h1>
-           <br><button class="btn btn-primary text-light" (click)="display()">View Details</button><br><br>
+            <h1>WELCOME {{cuser|uppercase}}</h1>
+
+            <app-deleteuser [item]="currentid" (onDelete)="delete($event)" (onCancel)="cancel()"></app-deleteuser>
+
+           <br><button class="btn btn-primary text-light" (click)="display()">View Details</button>&nbsp;&nbsp;&nbsp;
+
+           <button class="btn btn-danger" (click)="deleteFromParent()">Delete Account</button><br><br>
             <table *ngIf="f == true">
                 <tr>
                     <th>ID</th>
@@ -24,6 +29,15 @@
                     <td>{{age}}</td>
                 </tr>
             </table><br><br>
+            <form [formGroup]="updatedata" (ngSubmit)='updatefun()' class="formdiv">
+            <h3>Update Age</h3>
+            <label>Enter Age:</label>
+            <input type="text" placeholder="enter age" class="form-control" formControlName="newage" name="newage"><br>
+            <div *ngIf="updatedata.controls['newage'].touched">
+                <div *ngIf="updatedata.controls['newage'].errors?.['required']"><p class="err">This field is required!!</p></div>
+            </div>
+            <button type="submit" class="btn btn-primary text-light" [disabled]="!updatedata.valid">Update</button><br>
+            </form>
         </div>
         <div class="col-md-4"></div>
     </div>

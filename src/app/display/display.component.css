@@ -17,9 +17,13 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background-color:rgb(96, 146, 238);
 }
-h1{
+h1,h3{
   color: rgb(125, 63, 184);
 }
-body{
-  background-color: darkkhaki;
+.err{
+  color: red;
+  font-style: italic;
+}
+input{
+  border-radius: 25px;
 }

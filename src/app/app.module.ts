@@ -13,6 +13,7 @@ import { DbService } from './service/db.service';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { DeleteuserComponent } from './deleteuser/deleteuser.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     RegisterComponent,
     LoginComponent,
     DisplayComponent,
+    DeleteuserComponent,
     
   ],
   imports: [
