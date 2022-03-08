@@ -66,15 +66,15 @@ export class DbService {
        headers = headers.append('x-access-token',token)
        options.headers = headers
     }
-    return this.http.post('http://localhost:3000/update',data,options)
+    //return this.http.post('http://localhost:3000/update',data,options)
+    return this.http.put('http://localhost:3000/update',data,options)
 
   }
 
   delete(id:any){
-    // const data={
-    //   id,
-    //   name
-    // }
+    const data={
+      id
+    }
     console.log(id)
     const token = JSON.parse(localStorage.getItem("token")||'')
     let headers = new HttpHeaders()
@@ -82,7 +82,7 @@ export class DbService {
        headers = headers.append('x-access-token',token)
        options.headers = headers
     }
-    return this.http.delete('http://localhost:3000/display/?id='+id,options)
+    return this.http.delete('http://localhost:3000/delete/'+id,options)
 
   }
 

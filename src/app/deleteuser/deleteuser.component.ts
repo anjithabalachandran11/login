@@ -17,6 +17,7 @@ export class DeleteuserComponent implements OnInit {
 
   deletUserFromChild(){
     this.onDelete.emit(this.item)
+    
   }
 
   cancelFromChild(){

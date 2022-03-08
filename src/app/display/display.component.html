@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body [ngClass]="currentid ? 's1' :''">
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <h1>WELCOME {{cuser|uppercase}}</h1>
+            <span>{{dt|date:'medium'}}</span><br><br>
+           <button class="btn btn-primary text-light" (click)="display()" >View Details</button>&nbsp;
+           <button class="btn btn-danger" (click)="deleteFromParent()">Delete Account</button> &nbsp;
+           <button class="btn btn-info text-light" (click)="logout()">LogOut</button>
+           <br><br>
+           <app-deleteuser [item]="currentid" (onDelete)="delete($event)" (onCancel)="cancel()"></app-deleteuser>
 
-            <app-deleteuser [item]="currentid" (onDelete)="delete($event)" (onCancel)="cancel()"></app-deleteuser>
-
-           <br><button class="btn btn-primary text-light" (click)="display()">View Details</button>&nbsp;&nbsp;&nbsp;
-
-           <button class="btn btn-danger" (click)="deleteFromParent()">Delete Account</button><br><br>
             <table *ngIf="f == true">
                 <tr>
                     <th>ID</th>

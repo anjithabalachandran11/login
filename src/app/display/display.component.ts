@@ -12,6 +12,8 @@ export class DisplayComponent implements OnInit {
   cuser:any
   cid:any
 
+  dt = new Date()
+
   age:any
   name:any
   id:any
@@ -84,12 +86,23 @@ export class DisplayComponent implements OnInit {
       this.router.navigateByUrl('display')
     })
   }
-
   cancel(){
     this.currentid=""
   }
 
+  logout(){
+    localStorage.removeItem("cid")
+    localStorage.removeItem("cname")
+    localStorage.removeItem("token")
+    this.router.navigateByUrl('login')
+
+  }
+
   ngOnInit(): void {
+    if(!(localStorage.getItem("token"))){
+      alert("Pls login")
+      this.router.navigateByUrl('register')
+    }
   }
 
 }
